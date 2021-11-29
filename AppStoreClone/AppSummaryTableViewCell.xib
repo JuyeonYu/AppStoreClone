@@ -18,8 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-cX-VX2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                        <rect key="frame" x="0.0" y="40" width="320" height="80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="EYT-q6-u7F"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xJ3-Dg-mSn">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,12 +30,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcK-PI-0s8">
+                        <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="55m-dW-JBo"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhM-46-teA">
+                        <rect key="frame" x="0.0" y="120" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="w1o-ps-axO"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="1pq-cX-VX2" secondAttribute="bottom" id="Cy6-MB-D7r"/>
+                    <constraint firstItem="XhM-46-teA" firstAttribute="top" secondItem="1pq-cX-VX2" secondAttribute="bottom" id="6vC-U7-1oq"/>
+                    <constraint firstItem="1pq-cX-VX2" firstAttribute="top" secondItem="lcK-PI-0s8" secondAttribute="bottom" id="AlW-Kh-P7q"/>
+                    <constraint firstItem="lcK-PI-0s8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NVQ-VO-E75"/>
+                    <constraint firstItem="XhM-46-teA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dAC-ex-0mp"/>
+                    <constraint firstAttribute="trailing" secondItem="lcK-PI-0s8" secondAttribute="trailing" id="kmQ-2e-d30"/>
+                    <constraint firstItem="1pq-cX-VX2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mSR-or-0Mm"/>
                     <constraint firstAttribute="trailing" secondItem="1pq-cX-VX2" secondAttribute="trailing" id="mTP-zj-FnO"/>
                     <constraint firstItem="1pq-cX-VX2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="msg-Pf-Rya"/>
-                    <constraint firstItem="1pq-cX-VX2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tHj-f1-6iB"/>
+                    <constraint firstAttribute="trailing" secondItem="XhM-46-teA" secondAttribute="trailing" id="rhI-Io-2oV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -45,6 +67,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
