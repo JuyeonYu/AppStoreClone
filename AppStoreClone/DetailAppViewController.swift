@@ -19,6 +19,11 @@ class DetailAppViewController: UIViewController {
         case information
     }
     var app: AppStoreApp!
+    var unfoldReleaseNote: Bool = false {
+        didSet {
+            tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +31,16 @@ class DetailAppViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "AppMainTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppMainTableViewHeader")
         tableView.register(UINib(nibName: "AppSummaryTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppSummaryTableViewHeader")
+        tableView.register(UINib(nibName: "AppReleaseNoteTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppReleaseNoteTableViewHeader")
+        tableView.register(UINib(nibName: "AppScreenShotsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppScreenShotsHeader")
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    @objc func onUnfoldReleaseNote() {
+        unfoldReleaseNote = true
     }
 }
 
@@ -61,9 +69,27 @@ extension DetailAppViewController: UITableViewDataSource {
             (header.developerStackView.subviews[2] as? UILabel)?.text = app.sellerName
             return header
         case .releaseNote:
-            fallthrough
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppReleaseNoteTableViewHeader") as! AppReleaseNoteTableViewHeader
+            header.note.text = app.releaseNotes?.trimmingCharacters(in: .whitespacesAndNewlines)
+            header.version.text = app.version
+            header.date.text = app.currentVersionReleaseDate
+            if header.note.frame.height > header.note.font.pointSize * 3 {
+                header.showMore.isHidden = false
+            } else {
+                header.showMore.isHidden = true
+            }
+            if unfoldReleaseNote {
+                header.note.numberOfLines = 0
+            } else {
+                header.note.numberOfLines = 3
+            }
+            header.showMore.addTarget(self, action: #selector(onUnfoldReleaseNote), for: .touchUpInside)
+            return header
         case .screenShot:
-            fallthrough
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppScreenShotsHeader") as! AppScreenShotsHeader
+            header.collectionView.dataSource = self
+            header.collectionView.delegate = self
+            return header
         case .description:
             fallthrough
         case .developer:
@@ -90,7 +116,7 @@ extension DetailAppViewController: UITableViewDataSource {
         case .summary:
             fallthrough
         case .releaseNote:
-            fallthrough
+            return 0.1
         case .screenShot:
             fallthrough
         case .description:
@@ -108,11 +134,7 @@ extension DetailAppViewController: UITableViewDataSource {
         guard let type = ContentType.init(rawValue: indexPath.row) else { return UITableViewCell() }
         switch type {
         case .main:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AppMainTableViewCell", for: indexPath) as! AppMainTableViewCell
-            cell.thumbnail.load(urlString: app.artworkUrl60)
-            cell.title.text = app.trackName
-            cell.desc.text = app.primaryGenreName
-            return cell
+            fallthrough
         case .summary:
             fallthrough
         case .releaseNote:
@@ -138,9 +160,13 @@ extension DetailAppViewController: UITableViewDelegate {
         case .summary:
             return 120
         case .releaseNote:
-            fallthrough
+            if unfoldReleaseNote {
+                return UITableView.automaticDimension
+            } else {
+                return 180
+            }
         case .screenShot:
-            fallthrough
+            return 300
         case .description:
             fallthrough
         case .developer:
@@ -167,5 +193,22 @@ extension DetailAppViewController: UITableViewDelegate {
         case .information:
             return .leastNonzeroMagnitude
         }
+    }
+}
+
+extension DetailAppViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotCollectionViewCell", for: indexPath) as! ScreenshotCollectionViewCell
+        cell.screenshot.load(urlString: app.screenshotUrls[indexPath.row])
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        app.screenshotUrls.count
+    }
+}
+
+extension DetailAppViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 100, height: 300)
     }
 }

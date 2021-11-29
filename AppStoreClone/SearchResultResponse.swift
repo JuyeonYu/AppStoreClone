@@ -19,7 +19,10 @@ struct AppStoreApp: Codable {
         trackName,
         primaryGenreName,
         trackContentRating,
-        sellerName: String
+        sellerName,
+        version,
+        currentVersionReleaseDate: String
+    let releaseNotes: String?
     let userRatingCount: Int
     let averageUserRating: Double
 //    let artistViewURL: String

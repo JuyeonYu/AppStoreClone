@@ -16,6 +16,12 @@
 		CE5EA11F27550D7500D8B1AD /* AppSummaryTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA11E27550D7500D8B1AD /* AppSummaryTableViewHeader.xib */; };
 		CE5EA1212755129500D8B1AD /* SeparatorTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */; };
 		CE5EA1232755129D00D8B1AD /* SeparatorTableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */; };
+		CE5EA1252755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EA1242755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift */; };
+		CE5EA1272755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */; };
+		CE5EA12927552B5400D8B1AD /* AppScreenShotsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */; };
+		CE5EA12B27552B5D00D8B1AD /* AppScreenShotsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */; };
+		CE5EA13027552CC900D8B1AD /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */; };
+		CE5EA13127552CC900D8B1AD /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */; };
 		CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF742DF275337410034EA3A /* AppDelegate.swift */; };
 		CEF742E2275337410034EA3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF742E1275337410034EA3A /* SceneDelegate.swift */; };
 		CEF742E4275337410034EA3A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF742E3275337410034EA3A /* SearchViewController.swift */; };
@@ -46,6 +52,12 @@
 		CE5EA11E27550D7500D8B1AD /* AppSummaryTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSummaryTableViewHeader.xib; sourceTree = "<group>"; };
 		CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTableViewFooter.swift; sourceTree = "<group>"; };
 		CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorTableViewFooter.xib; sourceTree = "<group>"; };
+		CE5EA1242755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReleaseNoteTableViewHeader.swift; sourceTree = "<group>"; };
+		CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppReleaseNoteTableViewHeader.xib; sourceTree = "<group>"; };
+		CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenShotsHeader.swift; sourceTree = "<group>"; };
+		CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppScreenShotsHeader.xib; sourceTree = "<group>"; };
+		CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEF742DC275337410034EA3A /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF742DF275337410034EA3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF742E1275337410034EA3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,10 +122,16 @@
 				CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */,
 				CE5EA11C27550D6800D8B1AD /* AppSummaryTableViewHeader.swift */,
 				CE5EA11E27550D7500D8B1AD /* AppSummaryTableViewHeader.xib */,
+				CE5EA1242755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift */,
+				CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */,
+				CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */,
+				CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */,
 				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
 				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
 				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
 				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
+				CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */,
+				CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -237,11 +255,14 @@
 			files = (
 				CE5EA1232755129D00D8B1AD /* SeparatorTableViewFooter.xib in Resources */,
 				CE5EA11F27550D7500D8B1AD /* AppSummaryTableViewHeader.xib in Resources */,
+				CE5EA13127552CC900D8B1AD /* ScreenshotCollectionViewCell.xib in Resources */,
 				CEF742EF275337440034EA3A /* LaunchScreen.storyboard in Resources */,
 				CEF7431C27539D5C0034EA3A /* AppTableViewCell.xib in Resources */,
 				AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */,
 				CEF742EC275337440034EA3A /* Assets.xcassets in Resources */,
+				CE5EA12B27552B5D00D8B1AD /* AppScreenShotsHeader.xib in Resources */,
 				CEF742E7275337410034EA3A /* Main.storyboard in Resources */,
+				CE5EA1272755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib in Resources */,
 				CE5EA11B27550B3A00D8B1AD /* AppMainTableViewHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +276,10 @@
 			files = (
 				CEF742E4275337410034EA3A /* SearchViewController.swift in Sources */,
 				CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */,
+				CE5EA13027552CC900D8B1AD /* ScreenshotCollectionViewCell.swift in Sources */,
+				CE5EA1252755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift in Sources */,
 				CEF74316275362C60034EA3A /* MySearch.swift in Sources */,
+				CE5EA12927552B5400D8B1AD /* AppScreenShotsHeader.swift in Sources */,
 				CEF7431E2753A1A00034EA3A /* ImageCacheManager.swift in Sources */,
 				CEF7430727534ED00034EA3A /* Service.swift in Sources */,
 				CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */,
