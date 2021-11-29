@@ -27,6 +27,7 @@ class DetailAppViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "AppMainTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppMainTableViewHeader")
@@ -34,10 +35,6 @@ class DetailAppViewController: UIViewController {
         tableView.register(UINib(nibName: "AppReleaseNoteTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppReleaseNoteTableViewHeader")
         tableView.register(UINib(nibName: "AppScreenShotsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppScreenShotsHeader")
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     @objc func onUnfoldReleaseNote() {
         unfoldReleaseNote = true
@@ -118,7 +115,7 @@ extension DetailAppViewController: UITableViewDataSource {
         case .releaseNote:
             return 0.1
         case .screenShot:
-            fallthrough
+            return 0.1
         case .description:
             fallthrough
         case .developer:
