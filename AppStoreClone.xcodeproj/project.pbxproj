@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE775D092754C503004CDA88 /* AppSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE775D082754C503004CDA88 /* AppSummaryViewController.swift */; };
+		AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */; };
+		AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */; };
+		AEDDACEF27547AAF00C15973 /* ScreenShotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACED27547AAF00C15973 /* ScreenShotsTableViewCell.swift */; };
+		AEDDACF027547AAF00C15973 /* ScreenShotsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACEE27547AAF00C15973 /* ScreenShotsTableViewCell.xib */; };
+		AEDDACF327547AD500C15973 /* AppSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACF127547AD500C15973 /* AppSummaryTableViewCell.swift */; };
+		AEDDACF427547AD500C15973 /* AppSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACF227547AD500C15973 /* AppSummaryTableViewCell.xib */; };
 		CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */; };
 		CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF742DF275337410034EA3A /* AppDelegate.swift */; };
 		CEF742E2275337410034EA3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF742E1275337410034EA3A /* SceneDelegate.swift */; };
@@ -29,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE775D082754C503004CDA88 /* AppSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSummaryViewController.swift; sourceTree = "<group>"; };
+		AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTableViewCell.swift; sourceTree = "<group>"; };
+		AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainTableViewCell.xib; sourceTree = "<group>"; };
+		AEDDACED27547AAF00C15973 /* ScreenShotsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotsTableViewCell.swift; sourceTree = "<group>"; };
+		AEDDACEE27547AAF00C15973 /* ScreenShotsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenShotsTableViewCell.xib; sourceTree = "<group>"; };
+		AEDDACF127547AD500C15973 /* AppSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		AEDDACF227547AD500C15973 /* AppSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppViewController.swift; sourceTree = "<group>"; };
 		CEF742DC275337410034EA3A /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF742DF275337410034EA3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,9 +106,16 @@
 				CEF7431D2753A1A00034EA3A /* ImageCacheManager.swift */,
 				CEF743082753504D0034EA3A /* SearchResultResponse.swift */,
 				CEF74315275362C60034EA3A /* MySearch.swift */,
+				AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */,
+				AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */,
+				AEDDACF127547AD500C15973 /* AppSummaryTableViewCell.swift */,
+				AEDDACF227547AD500C15973 /* AppSummaryTableViewCell.xib */,
+				AEDDACED27547AAF00C15973 /* ScreenShotsTableViewCell.swift */,
+				AEDDACEE27547AAF00C15973 /* ScreenShotsTableViewCell.xib */,
 				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
 				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
 				CEF742E5275337410034EA3A /* Main.storyboard */,
+				AE775D082754C503004CDA88 /* AppSummaryViewController.swift */,
 				CEF742EB275337440034EA3A /* Assets.xcassets */,
 				CEF742ED275337440034EA3A /* LaunchScreen.storyboard */,
 				CEF742F0275337440034EA3A /* Info.plist */,
@@ -172,7 +193,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF742EF275337440034EA3A /* LaunchScreen.storyboard in Resources */,
+				AEDDACF427547AD500C15973 /* AppSummaryTableViewCell.xib in Resources */,
 				CEF7431C27539D5C0034EA3A /* AppTableViewCell.xib in Resources */,
+				AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */,
+				AEDDACF027547AAF00C15973 /* ScreenShotsTableViewCell.xib in Resources */,
 				CEF742EC275337440034EA3A /* Assets.xcassets in Resources */,
 				CEF742E7275337410034EA3A /* Main.storyboard in Resources */,
 			);
@@ -185,14 +209,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE775D092754C503004CDA88 /* AppSummaryViewController.swift in Sources */,
 				CEF742E4275337410034EA3A /* SearchViewController.swift in Sources */,
 				CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */,
 				CEF74316275362C60034EA3A /* MySearch.swift in Sources */,
 				CEF7431E2753A1A00034EA3A /* ImageCacheManager.swift in Sources */,
 				CEF7430727534ED00034EA3A /* Service.swift in Sources */,
 				CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */,
+				AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */,
+				AEDDACEF27547AAF00C15973 /* ScreenShotsTableViewCell.swift in Sources */,
 				CEF743222753AA280034EA3A /* Extensions.swift in Sources */,
 				CEF743092753504E0034EA3A /* SearchResultResponse.swift in Sources */,
+				AEDDACF327547AD500C15973 /* AppSummaryTableViewCell.swift in Sources */,
 				CEF7431B27539D5C0034EA3A /* AppTableViewCell.swift in Sources */,
 				CEF74318275388710034EA3A /* RealmManager.swift in Sources */,
 				CEF742E2275337410034EA3A /* SceneDelegate.swift in Sources */,

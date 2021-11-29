@@ -44,6 +44,10 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AppTableViewCell", bundle: nil), forCellReuseIdentifier: "AppTableViewCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
