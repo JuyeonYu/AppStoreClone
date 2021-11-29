@@ -60,6 +60,10 @@ class AppTableViewCell: UITableViewCell {
         if screenshots.subviews.count < maxScreenShotCount {
             addScreenShotImageView()
         }
+        screenshots.subviews.forEach {
+            let screenshot = $0 as? UIImageView
+            screenshot?.image = nil
+        }
     }
     fileprivate func addScreenShotImageView() {
         guard screenshots.subviews.count < maxScreenShotCount else {

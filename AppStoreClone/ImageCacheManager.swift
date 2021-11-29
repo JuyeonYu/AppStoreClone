@@ -15,9 +15,11 @@ class ImageCacheManager {
     func save(key: String?) {
         guard let url = URL(string: key ?? "") else { return }
         if imageCache.object(forKey: url.absoluteString as NSString) == nil {
-            guard let data = try? Data(contentsOf: url) else { return }
-            guard let image = UIImage(data: data) else { return }
-            imageCache.setObject(image, forKey: url.absoluteString as NSString)
+            DispatchQueue.global().async { [weak self] in
+                guard let data = try? Data(contentsOf: url) else { return }
+                guard let image = UIImage(data: data) else { return }
+                self?.imageCache.setObject(image, forKey: url.absoluteString as NSString)
+            }
         }
     }
     func image(from key: String) -> UIImage? {
