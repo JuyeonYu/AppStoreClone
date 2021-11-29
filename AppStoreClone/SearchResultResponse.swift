@@ -17,7 +17,9 @@ struct AppStoreApp: Codable {
     let screenshotUrls: [String]
     let artworkUrl60,
         trackName,
-        primaryGenreName: String
+        primaryGenreName,
+        trackContentRating,
+        sellerName: String
     let userRatingCount: Int
     let averageUserRating: Double
 //    let artistViewURL: String
@@ -43,7 +45,8 @@ struct AppStoreApp: Codable {
 //    let currency, version, wrapperType, resultDescription: String
 //    let artistID: Int
 //    let artistName: String
-//    let genres: [String]
+    let genres,
+        languageCodesISO2A: [String]
 //    let price, userRatingCount: Int
 //    let sellerURL: String?
 }

@@ -29,9 +29,9 @@ class AppTableViewCell: UITableViewCell {
         didSet {
             guard let app = app else { return }
             appName.text = app.trackName
-            genre.text = app.primaryGenreName
+            genre.text = app.genres.first
             ratingCount.text = "\(app.userRatingCount)"
-            addStar(rating: app.averageUserRating)
+            stars.addStar(rating: app.averageUserRating)
             if let logo = ImageCacheManager.shared.image(from: app.artworkUrl60) {
                 thumbnail.image = logo
             } else {
