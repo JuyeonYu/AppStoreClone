@@ -51,7 +51,6 @@ extension UIStackView {
         var rating = round(rating * digit) / digit
         for i in 0 ..< 5 {
             let imageView = self.subviews[i] as? UIImageView
-            
             if rating > 1 {
                 imageView?.image = UIImage(systemName: "star.fill")
             } else if rating >= 0.5 {

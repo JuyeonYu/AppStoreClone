@@ -23,8 +23,10 @@ struct AppStoreApp: Codable {
         version,
         currentVersionReleaseDate,
         description,
-        sellerName: String
-    let releaseNotes: String?
+        sellerName,
+        fileSizeBytes: String
+    let releaseNotes,
+        sellerUrl: String?
     let userRatingCount: Int
     let averageUserRating: Double
     let genres,

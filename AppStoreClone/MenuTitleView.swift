@@ -9,7 +9,6 @@ import UIKit
 
 class MenuTitleView: UIView {
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var accessory: UIImageView!
     override func awakeFromNib() {

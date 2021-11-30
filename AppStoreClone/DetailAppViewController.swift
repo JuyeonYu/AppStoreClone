@@ -21,6 +21,7 @@ class DetailAppViewController: UIViewController {
     var app: AppStoreApp!
     var unfoldReleaseNote: Bool = false
     var unfoldDescription: Bool = false
+    var appInfo: [[String]] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,16 @@ class DetailAppViewController: UIViewController {
         tableView.register(UINib(nibName: "AppScreenShotsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppScreenShotsHeader")
         tableView.register(UINib(nibName: "AppDescriptionTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppDescriptionTableViewHeader")
         tableView.register(UINib(nibName: "AppSellerTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppSellerTableViewHeader")
+        tableView.register(UINib(nibName: "AppInfoTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppInfoTableViewHeader")
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
+        tableView.register(UINib(nibName: "AppInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoTableViewCell")
+        
+        appInfo = [["제공자", app.sellerName],
+                   ["크기", app.fileSizeBytes],
+                   ["카테고리", app.genres[0]],
+                   ["연령 등급", app.trackContentRating],
+                   ["저작권", app.sellerName],
+                   ["개발자 웹사이트", app.sellerUrl ?? ""]]
     }
 }
 
@@ -99,7 +109,12 @@ extension DetailAppViewController: UITableViewDataSource {
             header.seller.text = app.sellerName
             return header
         case .information:
-            return UIView()
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppInfoTableViewHeader") as! AppInfoTableViewHeader
+            header.infoView.contentView.title.text = "정보"
+            header.infoView.contentView.title.font = UIFont.boldSystemFont(ofSize: 20)
+            header.infoView.contentView.subTitle.isHidden = true
+            header.infoView.contentView.accessory.isHidden = true
+            return header
         }
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -115,73 +130,44 @@ extension DetailAppViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard let type = ContentType.init(rawValue: section) else { return .leastNonzeroMagnitude }
         switch type {
-        case .main:
-            return 0.1
-        case .summary:
-            fallthrough
-        case .releaseNote:
-            return 0.1
-        case .screenShot:
-            return 0.1
-        case .description:
-            fallthrough
-        case .seller:
-            fallthrough
-        case .information:
-            return .leastNonzeroMagnitude
+        case .main, .releaseNote,.screenShot: return 0.1
+        default: return .leastNonzeroMagnitude
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        guard let type = ContentType.init(rawValue: section) else { return 0 }
+        switch type {
+        case .information: return appInfo.count
+        default: return 0
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let type = ContentType.init(rawValue: indexPath.row) else { return UITableViewCell() }
+        guard let type = ContentType.init(rawValue: indexPath.section) else { return UITableViewCell() }
         switch type {
-        case .main:
-            fallthrough
-        case .summary:
-            fallthrough
-        case .releaseNote:
-            fallthrough
-        case .screenShot:
-            fallthrough
-        case .description:
-            fallthrough
-        case .seller:
-            fallthrough
         case .information:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AppInfoTableViewCell", for: indexPath) as! AppInfoTableViewCell
+            cell.infoView.contentView.title.text = appInfo[indexPath.row][0]
+            cell.infoView.contentView.subTitle.text = appInfo[indexPath.row][1]
+            cell.infoView.contentView.subTitle.isHidden = indexPath.row == appInfo.count - 1
+            cell.infoView.contentView.accessory.isHidden = indexPath.row < appInfo.count - 1
+            cell.infoView.contentView.title.textColor = indexPath.row < appInfo.count - 1 ? .systemGray : .tintColor
+            return cell
+        default: return UITableViewCell()
         }
     }
 }
 
 extension DetailAppViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let type = ContentType.init(rawValue: section) else { return .leastNonzeroMagnitude }
-        switch type {
-        case .main, .summary, .releaseNote, .screenShot, .description, .seller:
-            return UITableView.automaticDimension
-        case .information:
-            return .leastNonzeroMagnitude
-        }
+        UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let type = ContentType.init(rawValue: indexPath.row) else { return .leastNonzeroMagnitude }
-        switch type {
-        case .main:
-             fallthrough
-        case .summary:
-            fallthrough
-        case .releaseNote:
-            fallthrough
-        case .screenShot:
-            fallthrough
-        case .description:
-            fallthrough
-        case .seller:
-            fallthrough
-        case .information:
-            return .leastNonzeroMagnitude
+        UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == ContentType.information.rawValue && indexPath.row == appInfo.count - 1,
+           let url = URL(string: appInfo.last?[1] ?? "") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }

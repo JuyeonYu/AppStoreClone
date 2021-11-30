@@ -24,25 +24,20 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppk-G6-PxK">
-                            <rect key="frame" x="76.5" y="345" width="48" height="128"/>
+                            <rect key="frame" x="76.5" y="345" width="174" height="128"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBC-eo-yBy">
-                            <rect key="frame" x="159.5" y="393.5" width="67" height="31"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnu-fN-Hwz">
-                            <rect key="frame" x="261.5" y="399" width="41.5" height="20.5"/>
+                            <rect key="frame" x="285.5" y="399" width="41.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-sP-w1F">
-                            <rect key="frame" x="338" y="387" width="44" height="44"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="safari" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-sP-w1F">
+                            <rect key="frame" x="362" y="399.5" width="20" height="19"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="5TI-YL-QCT"/>
-                                <constraint firstAttribute="width" constant="44" id="8PR-if-Jbo"/>
+                                <constraint firstAttribute="height" constant="20" id="5TI-YL-QCT"/>
+                                <constraint firstAttribute="width" constant="20" id="8PR-if-Jbo"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -58,7 +53,6 @@
             </constraints>
             <connections>
                 <outlet property="accessory" destination="PLG-sP-w1F" id="63F-Ul-UdJ"/>
-                <outlet property="button" destination="zBC-eo-yBy" id="hWA-fQ-OcO"/>
                 <outlet property="subTitle" destination="fnu-fN-Hwz" id="OXe-We-UEf"/>
                 <outlet property="title" destination="57i-Tf-JTM" id="JG6-1v-z3N"/>
             </connections>
@@ -66,6 +60,7 @@
         </view>
     </objects>
     <resources>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
