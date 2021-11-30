@@ -32,47 +32,37 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-ah-9CO">
-                    <rect key="frame" x="16" y="121" width="382" height="469"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epm-5y-3rG">
                     <rect key="frame" x="331" y="56.5" width="67" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OH-vv-UiS">
-                    <rect key="frame" x="331" y="121" width="67" height="31"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xab-oO-IKf" customClass="FoldableLabelStoryView" customModule="AppStoreClone" customModuleProvider="target">
+                    <rect key="frame" x="16" y="121" width="382" height="469"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <accessibility key="accessibilityConfiguration" identifier="AppReleaseNoteTableViewHeader"/>
             <constraints>
                 <constraint firstItem="epm-5y-3rG" firstAttribute="centerY" secondItem="ndb-TU-mk8" secondAttribute="centerY" id="5SZ-b5-9aF"/>
+                <constraint firstItem="Xab-oO-IKf" firstAttribute="top" secondItem="dsI-Ah-7Fo" secondAttribute="bottom" constant="8" id="7sD-9f-zcR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Xab-oO-IKf" secondAttribute="bottom" constant="16" id="ASX-nA-Ih1"/>
                 <constraint firstItem="dsI-Ah-7Fo" firstAttribute="top" secondItem="ndb-TU-mk8" secondAttribute="bottom" constant="8" id="DLH-x6-tOD"/>
-                <constraint firstItem="3OH-vv-UiS" firstAttribute="trailing" secondItem="epm-5y-3rG" secondAttribute="trailing" id="Djh-7q-IBx"/>
                 <constraint firstItem="fYV-cC-rtL" firstAttribute="centerY" secondItem="dsI-Ah-7Fo" secondAttribute="centerY" id="InF-69-eyj"/>
-                <constraint firstItem="2UO-ah-9CO" firstAttribute="leading" secondItem="dsI-Ah-7Fo" secondAttribute="leading" id="MCi-3d-ZPk"/>
                 <constraint firstItem="fYV-cC-rtL" firstAttribute="trailing" secondItem="epm-5y-3rG" secondAttribute="trailing" id="MX9-Tt-Kwv"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2UO-ah-9CO" secondAttribute="trailing" constant="16" id="Nyd-Bh-IOL"/>
                 <constraint firstItem="ndb-TU-mk8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Oll-27-vHi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2UO-ah-9CO" secondAttribute="bottom" constant="16" id="Rqv-VI-lm8"/>
-                <constraint firstItem="2UO-ah-9CO" firstAttribute="top" secondItem="dsI-Ah-7Fo" secondAttribute="bottom" constant="8" id="bhz-Nr-sfL"/>
-                <constraint firstItem="3OH-vv-UiS" firstAttribute="top" secondItem="2UO-ah-9CO" secondAttribute="top" id="kz7-9c-KV8"/>
+                <constraint firstItem="Xab-oO-IKf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="dMH-Yx-hcc"/>
                 <constraint firstItem="dsI-Ah-7Fo" firstAttribute="leading" secondItem="ndb-TU-mk8" secondAttribute="leading" id="oBf-Ew-0mr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="epm-5y-3rG" secondAttribute="trailing" constant="16" id="q4D-g9-yuR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xab-oO-IKf" secondAttribute="trailing" constant="16" id="slk-QV-BBv"/>
                 <constraint firstItem="ndb-TU-mk8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="sn9-Xd-80N"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="date" destination="fYV-cC-rtL" id="ZsU-Eh-pND"/>
-                <outlet property="note" destination="2UO-ah-9CO" id="RLN-bC-sfA"/>
-                <outlet property="showMore" destination="3OH-vv-UiS" id="st6-D4-qxe"/>
+                <outlet property="foldableLabel" destination="Xab-oO-IKf" id="rgP-f0-vAQ"/>
                 <outlet property="version" destination="dsI-Ah-7Fo" id="Ecp-sM-SmN"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="3.3482142857142856"/>

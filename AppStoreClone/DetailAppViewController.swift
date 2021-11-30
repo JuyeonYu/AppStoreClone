@@ -19,11 +19,7 @@ class DetailAppViewController: UIViewController {
         case information
     }
     var app: AppStoreApp!
-    var unfoldReleaseNote: Bool = false {
-        didSet {
-            tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
-        }
-    }
+    var unfoldReleaseNote: Bool = false
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +33,16 @@ class DetailAppViewController: UIViewController {
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
     }
     @objc func onUnfoldReleaseNote() {
-        unfoldReleaseNote = true
+        unfoldReleaseNote.toggle()
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
+        }
+        
+    }
+    @objc func onDownload() {
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
+        }
     }
 }
 
@@ -50,9 +55,10 @@ extension DetailAppViewController: UITableViewDataSource {
         switch type {
         case .main:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppMainTableViewHeader") as! AppMainTableViewHeader
-            header.thumbnail.load(urlString: app.artworkUrl60)
+            header.thumbnail.load(urlString: app.artworkUrl100)
             header.title.text = app.trackName
             header.genre.text = app.genres.first
+            header.download.addTarget(self, action: #selector(onDownload), for: .touchUpInside)
             return header
         case .summary:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppSummaryTableViewHeader") as! AppSummaryTableViewHeader
@@ -67,20 +73,13 @@ extension DetailAppViewController: UITableViewDataSource {
             return header
         case .releaseNote:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppReleaseNoteTableViewHeader") as! AppReleaseNoteTableViewHeader
-            header.note.text = app.releaseNotes?.trimmingCharacters(in: .whitespacesAndNewlines)
+            header.foldableLabel.contentView.label.text = app.releaseNotes
+            header.foldableLabel.contentView.label.numberOfLines = unfoldReleaseNote ? 0 : 2
+            header.foldableLabel.contentView.toggle.setTitle("더보기", for: .normal)
+            header.foldableLabel.contentView.toggle.addTarget(self, action: #selector(onUnfoldReleaseNote), for: .touchUpInside)
+            header.foldableLabel.contentView.toggle.isHidden = unfoldReleaseNote
             header.version.text = app.version
             header.date.text = app.currentVersionReleaseDate
-            if header.note.frame.height > header.note.font.pointSize * 3 {
-                header.showMore.isHidden = false
-            } else {
-                header.showMore.isHidden = true
-            }
-            if unfoldReleaseNote {
-                header.note.numberOfLines = 0
-            } else {
-                header.note.numberOfLines = 3
-            }
-            header.showMore.addTarget(self, action: #selector(onUnfoldReleaseNote), for: .touchUpInside)
             return header
         case .screenShot:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppScreenShotsHeader") as! AppScreenShotsHeader
@@ -153,17 +152,13 @@ extension DetailAppViewController: UITableViewDelegate {
         guard let type = ContentType.init(rawValue: section) else { return .leastNonzeroMagnitude }
         switch type {
         case .main:
-            return 150
+            fallthrough
         case .summary:
-            return 120
+            fallthrough
         case .releaseNote:
-            if unfoldReleaseNote {
-                return UITableView.automaticDimension
-            } else {
-                return 180
-            }
+            return UITableView.automaticDimension
         case .screenShot:
-            return 300
+            return UITableView.automaticDimension
         case .description:
             fallthrough
         case .developer:
@@ -206,6 +201,6 @@ extension DetailAppViewController: UICollectionViewDataSource {
 
 extension DetailAppViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 100, height: 300)
+        CGSize(width: 200, height: 400)
     }
 }

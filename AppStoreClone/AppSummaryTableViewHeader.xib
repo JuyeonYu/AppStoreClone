@@ -186,6 +186,7 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="height" constant="100" id="8bT-Pu-Snp"/>
                         <constraint firstItem="koA-Gx-LkI" firstAttribute="bottom" secondItem="06B-ny-W9w" secondAttribute="bottom" id="JEp-oh-PaE"/>
                         <constraint firstAttribute="bottom" secondItem="koA-Gx-LkI" secondAttribute="bottom" id="RFk-T4-s90"/>
                         <constraint firstAttribute="trailing" secondItem="koA-Gx-LkI" secondAttribute="trailing" id="YGa-fp-qD2"/>

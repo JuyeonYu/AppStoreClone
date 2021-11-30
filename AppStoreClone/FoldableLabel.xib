@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="FoldableLabel" id="iN0-l3-epB" customClass="FoldableLabel" customModule="AppStoreClone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6J-nc-8j4">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi3-Ff-eLN">
+                    <rect key="frame" x="353" y="191" width="61" height="31"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="더보기"/>
+                    <connections>
+                        <action selector="onToggle:" destination="iN0-l3-epB" eventType="touchUpInside" id="7u2-Dx-ynx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="FoldableLabel"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="z6J-nc-8j4" secondAttribute="trailing" id="1Fq-mZ-05V"/>
+                <constraint firstItem="pi3-Ff-eLN" firstAttribute="bottom" secondItem="z6J-nc-8j4" secondAttribute="bottom" constant="7" id="699-Ky-c6D"/>
+                <constraint firstAttribute="bottom" secondItem="z6J-nc-8j4" secondAttribute="bottom" id="Krr-gd-kot"/>
+                <constraint firstItem="pi3-Ff-eLN" firstAttribute="trailing" secondItem="z6J-nc-8j4" secondAttribute="trailing" id="QF0-Za-lKx"/>
+                <constraint firstItem="z6J-nc-8j4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R2U-IG-Ula"/>
+                <constraint firstItem="z6J-nc-8j4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kXt-YJ-TsK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="z6J-nc-8j4" id="qFA-fc-Gnp"/>
+                <outlet property="toggle" destination="pi3-Ff-eLN" id="Bk5-4e-EYg"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-125.55803571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

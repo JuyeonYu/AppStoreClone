@@ -24,9 +24,12 @@ extension UIImageView {
             self.image = nil
             return
         }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
+        if let image = ImageCacheManager.shared.image(from: urlString) {
+            self.image = image
+        } else {
+            ImageCacheManager.shared.save(key: urlString)
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self?.image = image
                     }

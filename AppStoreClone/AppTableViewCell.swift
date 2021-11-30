@@ -13,18 +13,12 @@ class AppTableViewCell: UITableViewCell {
         for i in 0 ..< maxScreenShotCount {
             let imageView = screenshots.subviews[i] as? UIImageView
             if let urlString = app.screenshotUrls[safe: i] {
-                if let screenshot = ImageCacheManager.shared.image(from: urlString) {
-                    imageView?.image = screenshot
-                } else {
-                    ImageCacheManager.shared.save(key: app.screenshotUrls[safe: i] ?? "")
-                    imageView?.load(urlString: urlString)
-                }
+                imageView?.load(urlString: urlString)
             } else {
                 screenshots.subviews[i].removeFromSuperview()
             }
         }
     }
-    
     var app: AppStoreApp? {
         didSet {
             guard let app = app else { return }
@@ -32,12 +26,7 @@ class AppTableViewCell: UITableViewCell {
             genre.text = app.genres.first
             ratingCount.text = "\(app.userRatingCount)"
             stars.addStar(rating: app.averageUserRating)
-            if let logo = ImageCacheManager.shared.image(from: app.artworkUrl60) {
-                thumbnail.image = logo
-            } else {
-                ImageCacheManager.shared.save(key: app.artworkUrl60)
-                thumbnail.load(urlString: app.artworkUrl60)
-            }
+            thumbnail.load(urlString: app.artworkUrl60)
             addScreenShots(app)
         }
     }

@@ -16,12 +16,14 @@ struct SearchResultResponse: Codable {
 struct AppStoreApp: Codable {
     let screenshotUrls: [String]
     let artworkUrl60,
+        artworkUrl100,
         trackName,
         primaryGenreName,
         trackContentRating,
         sellerName,
         version,
-        currentVersionReleaseDate: String
+        currentVersionReleaseDate,
+        description: String
     let releaseNotes: String?
     let userRatingCount: Int
     let averageUserRating: Double

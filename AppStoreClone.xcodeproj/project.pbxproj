@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE15F0232755EDFC0059D415 /* FoldableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F0222755EDFC0059D415 /* FoldableLabel.swift */; };
+		AE15F0252755EE030059D415 /* FoldableLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F0242755EE030059D415 /* FoldableLabel.xib */; };
 		AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */; };
 		AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */; };
 		CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE15F0222755EDFC0059D415 /* FoldableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableLabel.swift; sourceTree = "<group>"; };
+		AE15F0242755EE030059D415 /* FoldableLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoldableLabel.xib; sourceTree = "<group>"; };
 		AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTableViewCell.swift; sourceTree = "<group>"; };
 		AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppViewController.swift; sourceTree = "<group>"; };
@@ -116,8 +120,14 @@
 		CE5EA1152755019D00D8B1AD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				AE15F0222755EDFC0059D415 /* FoldableLabel.swift */,
+				AE15F0242755EE030059D415 /* FoldableLabel.xib */,
 				AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */,
 				AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */,
+				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
+				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
+				CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */,
+				CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */,
 				CE5EA11827550B3100D8B1AD /* AppMainTableViewHeader.swift */,
 				CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */,
 				CE5EA11C27550D6800D8B1AD /* AppSummaryTableViewHeader.swift */,
@@ -128,10 +138,6 @@
 				CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */,
 				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
 				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
-				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
-				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
-				CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */,
-				CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				CEF7431C27539D5C0034EA3A /* AppTableViewCell.xib in Resources */,
 				AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */,
 				CEF742EC275337440034EA3A /* Assets.xcassets in Resources */,
+				AE15F0252755EE030059D415 /* FoldableLabel.xib in Resources */,
 				CE5EA12B27552B5D00D8B1AD /* AppScreenShotsHeader.xib in Resources */,
 				CEF742E7275337410034EA3A /* Main.storyboard in Resources */,
 				CE5EA1272755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib in Resources */,
@@ -289,6 +296,7 @@
 				CEF7431B27539D5C0034EA3A /* AppTableViewCell.swift in Sources */,
 				CE5EA11927550B3100D8B1AD /* AppMainTableViewHeader.swift in Sources */,
 				CEF74318275388710034EA3A /* RealmManager.swift in Sources */,
+				AE15F0232755EDFC0059D415 /* FoldableLabel.swift in Sources */,
 				CEF742E2275337410034EA3A /* SceneDelegate.swift in Sources */,
 				CE5EA1212755129500D8B1AD /* SeparatorTableViewFooter.swift in Sources */,
 				CE5EA11D27550D6800D8B1AD /* AppSummaryTableViewHeader.swift in Sources */,
