@@ -15,11 +15,12 @@ class DetailAppViewController: UIViewController {
         case releaseNote
         case screenShot
         case description
-        case developer
+        case seller
         case information
     }
     var app: AppStoreApp!
     var unfoldReleaseNote: Bool = false
+    var unfoldDescription: Bool = false
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +31,9 @@ class DetailAppViewController: UIViewController {
         tableView.register(UINib(nibName: "AppSummaryTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppSummaryTableViewHeader")
         tableView.register(UINib(nibName: "AppReleaseNoteTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppReleaseNoteTableViewHeader")
         tableView.register(UINib(nibName: "AppScreenShotsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppScreenShotsHeader")
+        tableView.register(UINib(nibName: "AppDescriptionTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppDescriptionTableViewHeader")
+        tableView.register(UINib(nibName: "AppSellerTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppSellerTableViewHeader")
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
-    }
-    @objc func onUnfoldReleaseNote() {
-        unfoldReleaseNote.toggle()
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
-        }
-        
-    }
-    @objc func onDownload() {
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer: ContentType.releaseNote.rawValue), with: .none)
-        }
     }
 }
 
@@ -58,7 +49,6 @@ extension DetailAppViewController: UITableViewDataSource {
             header.thumbnail.load(urlString: app.artworkUrl100)
             header.title.text = app.trackName
             header.genre.text = app.genres.first
-            header.download.addTarget(self, action: #selector(onDownload), for: .touchUpInside)
             return header
         case .summary:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppSummaryTableViewHeader") as! AppSummaryTableViewHeader
@@ -73,11 +63,16 @@ extension DetailAppViewController: UITableViewDataSource {
             return header
         case .releaseNote:
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppReleaseNoteTableViewHeader") as! AppReleaseNoteTableViewHeader
+            let initialLabelNumber = header.foldableLabel.contentView.initialLabelNumber
             header.foldableLabel.contentView.label.text = app.releaseNotes
-            header.foldableLabel.contentView.label.numberOfLines = unfoldReleaseNote ? 0 : 2
-            header.foldableLabel.contentView.toggle.setTitle("더보기", for: .normal)
-            header.foldableLabel.contentView.toggle.addTarget(self, action: #selector(onUnfoldReleaseNote), for: .touchUpInside)
-            header.foldableLabel.contentView.toggle.isHidden = unfoldReleaseNote
+            header.foldableLabel.contentView.label.numberOfLines = unfoldReleaseNote ? 0 : initialLabelNumber
+            header.foldableLabel.contentView.toggle.isHidden = unfoldReleaseNote || header.foldableLabel.contentView.label.calculateMaxLines() == initialLabelNumber
+            header.foldableLabel.contentView.onToggle = {
+                self.unfoldReleaseNote.toggle()
+                DispatchQueue.main.async {
+                    self.tableView.reloadSections(IndexSet(integer: type.rawValue), with: .none)
+                }
+            }
             header.version.text = app.version
             header.date.text = app.currentVersionReleaseDate
             return header
@@ -87,9 +82,22 @@ extension DetailAppViewController: UITableViewDataSource {
             header.collectionView.delegate = self
             return header
         case .description:
-            fallthrough
-        case .developer:
-            fallthrough
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppDescriptionTableViewHeader") as! AppDescriptionTableViewHeader
+            let initialLabelNumber = header.foldableLabel.contentView.initialLabelNumber
+            header.foldableLabel.contentView.label.text = app.description
+            header.foldableLabel.contentView.label.numberOfLines = unfoldDescription ? 0 : initialLabelNumber
+            header.foldableLabel.contentView.toggle.isHidden = unfoldDescription || header.foldableLabel.contentView.label.calculateMaxLines() == initialLabelNumber
+            header.foldableLabel.contentView.onToggle = {
+                self.unfoldDescription.toggle()
+                DispatchQueue.main.async {
+                    self.tableView.reloadSections(IndexSet(integer: type.rawValue), with: .none)
+                }
+            }
+            return header
+        case .seller:
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppSellerTableViewHeader") as! AppSellerTableViewHeader
+            header.seller.text = app.sellerName
+            return header
         case .information:
             return UIView()
         }
@@ -117,7 +125,7 @@ extension DetailAppViewController: UITableViewDataSource {
             return 0.1
         case .description:
             fallthrough
-        case .developer:
+        case .seller:
             fallthrough
         case .information:
             return .leastNonzeroMagnitude
@@ -139,7 +147,7 @@ extension DetailAppViewController: UITableViewDataSource {
             fallthrough
         case .description:
             fallthrough
-        case .developer:
+        case .seller:
             fallthrough
         case .information:
             return UITableViewCell()
@@ -151,18 +159,8 @@ extension DetailAppViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let type = ContentType.init(rawValue: section) else { return .leastNonzeroMagnitude }
         switch type {
-        case .main:
-            fallthrough
-        case .summary:
-            fallthrough
-        case .releaseNote:
+        case .main, .summary, .releaseNote, .screenShot, .description, .seller:
             return UITableView.automaticDimension
-        case .screenShot:
-            return UITableView.automaticDimension
-        case .description:
-            fallthrough
-        case .developer:
-            fallthrough
         case .information:
             return .leastNonzeroMagnitude
         }
@@ -180,7 +178,7 @@ extension DetailAppViewController: UITableViewDelegate {
             fallthrough
         case .description:
             fallthrough
-        case .developer:
+        case .seller:
             fallthrough
         case .information:
             return .leastNonzeroMagnitude

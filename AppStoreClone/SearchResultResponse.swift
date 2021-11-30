@@ -20,13 +20,15 @@ struct AppStoreApp: Codable {
         trackName,
         primaryGenreName,
         trackContentRating,
-        sellerName,
         version,
         currentVersionReleaseDate,
-        description: String
+        description,
+        sellerName: String
     let releaseNotes: String?
     let userRatingCount: Int
     let averageUserRating: Double
+    let genres,
+        languageCodesISO2A: [String]
 //    let artistViewURL: String
 //    let isGameCenterEnabled: Bool
 //    let features, supportedDevices, advisories: [String]
@@ -50,8 +52,7 @@ struct AppStoreApp: Codable {
 //    let currency, version, wrapperType, resultDescription: String
 //    let artistID: Int
 //    let artistName: String
-    let genres,
-        languageCodesISO2A: [String]
+    
 //    let price, userRatingCount: Int
 //    let sellerURL: String?
 }

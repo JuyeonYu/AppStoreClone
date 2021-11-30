@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		AE15F0232755EDFC0059D415 /* FoldableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F0222755EDFC0059D415 /* FoldableLabel.swift */; };
 		AE15F0252755EE030059D415 /* FoldableLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F0242755EE030059D415 /* FoldableLabel.xib */; };
+		AE15F02727560B030059D415 /* AppDescriptionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02627560B030059D415 /* AppDescriptionTableViewHeader.swift */; };
+		AE15F02927560B090059D415 /* AppDescriptionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F02827560B090059D415 /* AppDescriptionTableViewHeader.xib */; };
+		AE15F02B275613500059D415 /* AppSellerTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02A275613500059D415 /* AppSellerTableViewHeader.swift */; };
+		AE15F02D275613560059D415 /* AppSellerTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */; };
+		AE15F02F2756192F0059D415 /* MenuTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02E2756192F0059D415 /* MenuTitleView.swift */; };
+		AE15F031275619480059D415 /* MenuTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F030275619480059D415 /* MenuTitleView.xib */; };
 		AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */; };
 		AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */; };
 		CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */; };
@@ -47,6 +53,12 @@
 /* Begin PBXFileReference section */
 		AE15F0222755EDFC0059D415 /* FoldableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableLabel.swift; sourceTree = "<group>"; };
 		AE15F0242755EE030059D415 /* FoldableLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoldableLabel.xib; sourceTree = "<group>"; };
+		AE15F02627560B030059D415 /* AppDescriptionTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDescriptionTableViewHeader.swift; sourceTree = "<group>"; };
+		AE15F02827560B090059D415 /* AppDescriptionTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDescriptionTableViewHeader.xib; sourceTree = "<group>"; };
+		AE15F02A275613500059D415 /* AppSellerTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSellerTableViewHeader.swift; sourceTree = "<group>"; };
+		AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSellerTableViewHeader.xib; sourceTree = "<group>"; };
+		AE15F02E2756192F0059D415 /* MenuTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleView.swift; sourceTree = "<group>"; };
+		AE15F030275619480059D415 /* MenuTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTitleView.xib; sourceTree = "<group>"; };
 		AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTableViewCell.swift; sourceTree = "<group>"; };
 		AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppViewController.swift; sourceTree = "<group>"; };
@@ -136,8 +148,14 @@
 				CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */,
 				CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */,
 				CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */,
+				AE15F02627560B030059D415 /* AppDescriptionTableViewHeader.swift */,
+				AE15F02827560B090059D415 /* AppDescriptionTableViewHeader.xib */,
+				AE15F02A275613500059D415 /* AppSellerTableViewHeader.swift */,
+				AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */,
 				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
 				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
+				AE15F02E2756192F0059D415 /* MenuTitleView.swift */,
+				AE15F030275619480059D415 /* MenuTitleView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -260,11 +278,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5EA1232755129D00D8B1AD /* SeparatorTableViewFooter.xib in Resources */,
+				AE15F02D275613560059D415 /* AppSellerTableViewHeader.xib in Resources */,
 				CE5EA11F27550D7500D8B1AD /* AppSummaryTableViewHeader.xib in Resources */,
+				AE15F031275619480059D415 /* MenuTitleView.xib in Resources */,
 				CE5EA13127552CC900D8B1AD /* ScreenshotCollectionViewCell.xib in Resources */,
 				CEF742EF275337440034EA3A /* LaunchScreen.storyboard in Resources */,
 				CEF7431C27539D5C0034EA3A /* AppTableViewCell.xib in Resources */,
 				AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */,
+				AE15F02927560B090059D415 /* AppDescriptionTableViewHeader.xib in Resources */,
 				CEF742EC275337440034EA3A /* Assets.xcassets in Resources */,
 				AE15F0252755EE030059D415 /* FoldableLabel.xib in Resources */,
 				CE5EA12B27552B5D00D8B1AD /* AppScreenShotsHeader.xib in Resources */,
@@ -284,6 +305,7 @@
 				CEF742E4275337410034EA3A /* SearchViewController.swift in Sources */,
 				CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */,
 				CE5EA13027552CC900D8B1AD /* ScreenshotCollectionViewCell.swift in Sources */,
+				AE15F02727560B030059D415 /* AppDescriptionTableViewHeader.swift in Sources */,
 				CE5EA1252755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift in Sources */,
 				CEF74316275362C60034EA3A /* MySearch.swift in Sources */,
 				CE5EA12927552B5400D8B1AD /* AppScreenShotsHeader.swift in Sources */,
@@ -291,12 +313,14 @@
 				CEF7430727534ED00034EA3A /* Service.swift in Sources */,
 				CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */,
 				AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */,
+				AE15F02B275613500059D415 /* AppSellerTableViewHeader.swift in Sources */,
 				CEF743222753AA280034EA3A /* Extensions.swift in Sources */,
 				CEF743092753504E0034EA3A /* SearchResultResponse.swift in Sources */,
 				CEF7431B27539D5C0034EA3A /* AppTableViewCell.swift in Sources */,
 				CE5EA11927550B3100D8B1AD /* AppMainTableViewHeader.swift in Sources */,
 				CEF74318275388710034EA3A /* RealmManager.swift in Sources */,
 				AE15F0232755EDFC0059D415 /* FoldableLabel.swift in Sources */,
+				AE15F02F2756192F0059D415 /* MenuTitleView.swift in Sources */,
 				CEF742E2275337410034EA3A /* SceneDelegate.swift in Sources */,
 				CE5EA1212755129500D8B1AD /* SeparatorTableViewFooter.swift in Sources */,
 				CE5EA11D27550D6800D8B1AD /* AppSummaryTableViewHeader.swift in Sources */,

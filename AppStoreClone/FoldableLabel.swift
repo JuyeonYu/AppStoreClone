@@ -7,12 +7,15 @@
 
 import UIKit
 
+
 class FoldableLabel: UIView {
+    let initialLabelNumber = 2
+    var onToggle: (() -> Void)?
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var toggle: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.numberOfLines = 2
+        label.numberOfLines = initialLabelNumber
         label.lineBreakMode = .byWordWrapping
     }
     static func loadViewFromNib() -> FoldableLabel {
@@ -23,14 +26,14 @@ class FoldableLabel: UIView {
         }! as! FoldableLabel
     }
     @IBAction func onToggle(_ sender: Any) {
-        toggle.isHidden = true
+        onToggle?()
     }
 }
 
 class FoldableLabelStoryView: UIView {
     var contentView: FoldableLabel
     required init?(coder aDecoder: NSCoder) {
-        contentView = FoldableLabel.loadViewFromNib()
+        contentView = FoldableLabel.fromNib()
         super.init(coder: aDecoder)
         contentView.frame = bounds
         addSubview(contentView)
