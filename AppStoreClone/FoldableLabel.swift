@@ -18,13 +18,6 @@ class FoldableLabel: UIView {
         label.numberOfLines = initialLabelNumber
         label.lineBreakMode = .byWordWrapping
     }
-    static func loadViewFromNib() -> FoldableLabel {
-        let bundle = Bundle(for: self)
-        let nib = UINib(nibName: "FoldableLabel", bundle: bundle)
-        return nib.instantiate(withOwner: nil, options: nil).first {
-            ($0 as? UIView)?.restorationIdentifier == "FoldableLabel"
-        }! as! FoldableLabel
-    }
     @IBAction func onToggle(_ sender: Any) {
         onToggle?()
     }
