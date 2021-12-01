@@ -9,7 +9,6 @@ import UIKit
 import Network
 
 class DetailAppViewController: UIViewController {
-    typealias AppMainConfigurator = TableHeaderViewConfigurator<AppMainTableViewHeader, AppStoreApp>
     enum ContentType: Int, CaseIterable {
         case main
         case summary

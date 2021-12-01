@@ -14,55 +14,38 @@ import RxDataSources
 
 class SearchViewController: UIViewController, StoryboardView {
     var disposeBag: DisposeBag = DisposeBag()
-    enum ContentType {
-        case keyword
-        case app
-    }
-//    var contentType: ContentType = .keyword {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
-    var mySearches: [MySearch] = [] {
-        didSet {
-            mySearches.sort(by: {$0.id > $1.id} )
-        }
-    }
-    var apps: [AppStoreApp] = []
     fileprivate let searchController = UISearchController(searchResultsController: nil)
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var keywordTableView: UITableView!
     @IBOutlet weak var appsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = SearchReactor()
-        mySearches = RealmManager.shared.readMySearches()
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-//        searchController.searchBar.delegate = self
-//        tableView.delegate = self
-//        tableView.dataSource = nil
-        
-
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BasicCell")
+        keywordTableView.register(UITableViewCell.self, forCellReuseIdentifier: "BasicCell")
         appsTableView.register(UINib(nibName: "AppTableViewCell", bundle: nil), forCellReuseIdentifier: "AppTableViewCell")
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        keywordTableView.rx.didScroll
+            .filter { self.searchController.searchBar.isFirstResponder }
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: {
+                self.searchController.searchBar.resignFirstResponder()
+            }).disposed(by: disposeBag)
+        appsTableView.rx.modelSelected(AppStoreApp.self)
+            .asDriver()
+            .drive(onNext: { [weak self] app in
+                guard let detailAppViewController = self?.storyboard?.instantiateViewController(
+                    withIdentifier: "DetailAppViewController") as? DetailAppViewController else { return }
+                detailAppViewController.app = app
+                self?.navigationController?.pushViewController(detailAppViewController, animated: true)
+            }).disposed(by: disposeBag)
     }
     func bind(reactor: SearchReactor) {
         Observable.just(Void())
             .map { Reactor.Action.read(keyword: "") }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        tableView.rx.didScroll
-            .asDriver()
-            .drive(onNext: {
-                self.searchController.searchBar.resignFirstResponder()
-            }).disposed(by: disposeBag)
-        tableView.rx.modelSelected(MySearch.self)
+        keywordTableView.rx.modelSelected(MySearch.self)
             .map { Reactor.Action.onSearch(keyword: $0.keyword) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -78,7 +61,7 @@ class SearchViewController: UIViewController, StoryboardView {
         
         reactor.state
             .map { $0.mySearches }
-            .bind(to: tableView.rx.items) { _, _, mySearch in
+            .bind(to: keywordTableView.rx.items) { _, _, mySearch in
                 let cell = UITableViewCell()
                 cell.imageView?.image = UIImage(systemName: "magnifyingglass")
                 cell.textLabel?.text = mySearch.keyword
@@ -89,9 +72,9 @@ class SearchViewController: UIViewController, StoryboardView {
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { [weak self] isApp in
-                self?.tableView.isHidden = isApp
+                self?.keywordTableView.isHidden = isApp
                 self?.appsTableView.isHidden = !isApp
-                if isApp {
+                if isApp && self?.searchController.searchBar.isFirstResponder ?? false {
                     self?.searchController.searchBar.resignFirstResponder()
                 }
             }).disposed(by: disposeBag)
@@ -114,9 +97,9 @@ class SearchViewController: UIViewController, StoryboardView {
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] emptyApp in
                 if emptyApp {
-                    self?.tableView.setEmptyMessage(title: "검색 기록 없음", subTitle: "새로운 앱을 검색해보세요!")
+                    self?.keywordTableView.setEmptyMessage(title: "검색 기록 없음", subTitle: "새로운 앱을 검색해보세요!")
                 } else {
-                    self?.tableView.restore()
+                    self?.keywordTableView.restore()
                 }
             }).disposed(by: disposeBag)
         reactor.state
@@ -154,71 +137,3 @@ extension SearchViewController {
         )
     }
 }
-
-
-//extension SearchViewController: UISearchBarDelegate {
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        contentType = .keyword
-//    }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard let keyword = searchBar.text else { return }
-//        RealmManager.shared.writeMySearch(keyword: keyword)
-//        Service.shared.fetchApps(term: keyword) { response, error in
-//            self.apps = response?.results ?? []
-//            self.contentType = .app
-//        }
-//    }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        contentType = .keyword
-//        guard !searchText.isEmpty else {
-//            mySearches = RealmManager.shared.readMySearches()
-//            return
-//        }
-//        mySearches = RealmManager.shared.fetchMySearches(keyword: searchText)
-//    }
-//}
-
-//extension SearchViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch contentType {
-//        case .keyword: return mySearches.count
-//        case .app: return apps.count
-//        }
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch contentType {
-//        case .keyword:
-//            let cell = UITableViewCell()
-//            cell.imageView?.image = UIImage(systemName: "magnifyingglass")
-//            cell.textLabel?.text = mySearches[indexPath.row].keyword
-//            return cell
-//        case .app:
-//            guard let cell = tableView.dequeueReusableCell(
-//                withIdentifier: "AppTableViewCell", for: indexPath) as? AppTableViewCell else { return UITableViewCell() }
-//            cell.app = apps[indexPath.row]
-//            return cell
-//        }
-//    }
-//}
-//
-//extension SearchViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch contentType {
-//        case .keyword:
-//            let keyword = mySearches[indexPath.row].keyword
-//            searchController.searchBar.text = keyword
-//            Service.shared.fetchApps(term: keyword) { response, error in
-//                self.apps = response?.results ?? []
-//                self.contentType = .app
-//            }
-//        case .app:
-//            guard let detailAppViewController = storyboard?.instantiateViewController(
-//                withIdentifier: "DetailAppViewController") as? DetailAppViewController else { return }
-//            detailAppViewController.app = apps[indexPath.row]
-//            navigationController?.pushViewController(detailAppViewController, animated: true)
-//        }
-//    }
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        searchController.searchBar.resignFirstResponder()
-//    }
-//}

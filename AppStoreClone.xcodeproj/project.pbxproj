@@ -16,7 +16,6 @@
 		AE15F02F2756192F0059D415 /* MenuTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02E2756192F0059D415 /* MenuTitleView.swift */; };
 		AE15F031275619480059D415 /* MenuTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F030275619480059D415 /* MenuTitleView.xib */; };
 		AE15F035275749710059D415 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F034275749710059D415 /* Protocols.swift */; };
-		AE15F03727574A7E0059D415 /* ViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03627574A7E0059D415 /* ViewConfigurator.swift */; };
 		AE15F03B275751BE0059D415 /* SearchReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03A275751BE0059D415 /* SearchReactor.swift */; };
 		AE15F03E275762AB0059D415 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AE15F03D275762AB0059D415 /* RxDataSources */; };
 		AE15F040275762E40059D415 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03F275762E40059D415 /* TableViewData.swift */; };
@@ -69,7 +68,6 @@
 		AE15F02E2756192F0059D415 /* MenuTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleView.swift; sourceTree = "<group>"; };
 		AE15F030275619480059D415 /* MenuTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTitleView.xib; sourceTree = "<group>"; };
 		AE15F034275749710059D415 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		AE15F03627574A7E0059D415 /* ViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfigurator.swift; sourceTree = "<group>"; };
 		AE15F03A275751BE0059D415 /* SearchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReactor.swift; sourceTree = "<group>"; };
 		AE15F03F275762E40059D415 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
 		AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPlaceHolder.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				CEF7430627534ED00034EA3A /* Service.swift */,
 				CEF74317275388710034EA3A /* RealmManager.swift */,
 				CEF7431D2753A1A00034EA3A /* ImageCacheManager.swift */,
-				AE15F03627574A7E0059D415 /* ViewConfigurator.swift */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				CE5EA1392756748C00D8B1AD /* AppInfoTableViewHeader.swift in Sources */,
 				CEF7431E2753A1A00034EA3A /* ImageCacheManager.swift in Sources */,
 				CEF7430727534ED00034EA3A /* Service.swift in Sources */,
-				AE15F03727574A7E0059D415 /* ViewConfigurator.swift in Sources */,
 				CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */,
 				AE15F04227579B1A0059D415 /* TableViewPlaceHolder.swift in Sources */,
 				AE15F02B275613500059D415 /* AppSellerTableViewHeader.swift in Sources */,

@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" title="검색" id="hSw-ti-5xh"/>
                     <connections>
                         <outlet property="appsTableView" destination="88Q-ez-c5j" id="xvB-PA-iAk"/>
-                        <outlet property="tableView" destination="7bY-eL-wJV" id="MTt-7A-cjB"/>
+                        <outlet property="keywordTableView" destination="7bY-eL-wJV" id="MTt-7A-cjB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
