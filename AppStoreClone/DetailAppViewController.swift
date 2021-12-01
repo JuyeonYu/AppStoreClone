@@ -9,6 +9,7 @@ import UIKit
 import Network
 
 class DetailAppViewController: UIViewController {
+    typealias AppMainConfigurator = TableHeaderViewConfigurator<AppMainTableViewHeader, AppStoreApp>
     enum ContentType: Int, CaseIterable {
         case main
         case summary
@@ -37,7 +38,6 @@ class DetailAppViewController: UIViewController {
         tableView.register(UINib(nibName: "AppInfoTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppInfoTableViewHeader")
         tableView.register(UINib(nibName: "SeparatorTableViewFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: "SeparatorTableViewFooter")
         tableView.register(UINib(nibName: "AppInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoTableViewCell")
-        
         appInfo = [["제공자", app.sellerName],
                    ["크기", app.fileSizeBytes],
                    ["카테고리", app.genres[0]],
@@ -66,7 +66,7 @@ extension DetailAppViewController: UITableViewDataSource {
             (header.ratingStackView.subviews[1] as? UILabel)?.text = "\((round(app.averageUserRating * 10) / 10))"
             (header.ratingStackView.subviews[2] as? UIStackView)?.addStar(rating: app.averageUserRating)
             (header.ageStackView.subviews[1] as? UILabel)?.text = app.trackContentRating
-            (header.chartStackView.subviews[2] as? UILabel)?.text = app.genres.first
+            (header.categoryStackView.subviews[2] as? UILabel)?.text = app.genres.first
             (header.languageStackView.subviews[1] as? UILabel)?.text = app.languageCodesISO2A.contains(Locale.current.regionCode ?? "KO") ? Locale.current.regionCode : app.languageCodesISO2A.first
             (header.languageStackView.subviews[2] as? UILabel)?.text = "+ \(app.languageCodesISO2A.count)개 언어"
             (header.developerStackView.subviews[2] as? UILabel)?.text = app.sellerName
@@ -120,17 +120,16 @@ extension DetailAppViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let type = ContentType.init(rawValue: section) else { return UIView() }
         let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SeparatorTableViewFooter") as! SeparatorTableViewFooter
-        if type == .main {
-            footer.separatorTrailing.constant = 0
-        } else {
-            footer.separatorTrailing.constant = 16
+        switch type {
+        case .main: footer.separatorTrailing.constant = 0
+        default: footer.separatorTrailing.constant = 16
         }
         return footer
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard let type = ContentType.init(rawValue: section) else { return .leastNonzeroMagnitude }
         switch type {
-        case .main, .releaseNote,.screenShot: return 0.1
+        case .main, .summary, .releaseNote, .screenShot: return 0.1
         default: return .leastNonzeroMagnitude
         }
     }

@@ -15,8 +15,13 @@
 		AE15F02D275613560059D415 /* AppSellerTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */; };
 		AE15F02F2756192F0059D415 /* MenuTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02E2756192F0059D415 /* MenuTitleView.swift */; };
 		AE15F031275619480059D415 /* MenuTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F030275619480059D415 /* MenuTitleView.xib */; };
-		AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */; };
-		AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */; };
+		AE15F035275749710059D415 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F034275749710059D415 /* Protocols.swift */; };
+		AE15F03727574A7E0059D415 /* ViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03627574A7E0059D415 /* ViewConfigurator.swift */; };
+		AE15F03B275751BE0059D415 /* SearchReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03A275751BE0059D415 /* SearchReactor.swift */; };
+		AE15F03E275762AB0059D415 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AE15F03D275762AB0059D415 /* RxDataSources */; };
+		AE15F040275762E40059D415 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03F275762E40059D415 /* TableViewData.swift */; };
+		AE15F04227579B1A0059D415 /* TableViewPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */; };
+		AE15F04427579B200059D415 /* TableViewPlaceHolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */; };
 		CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */; };
 		CE5EA11927550B3100D8B1AD /* AppMainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EA11827550B3100D8B1AD /* AppMainTableViewHeader.swift */; };
 		CE5EA11B27550B3A00D8B1AD /* AppMainTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */; };
@@ -63,8 +68,12 @@
 		AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSellerTableViewHeader.xib; sourceTree = "<group>"; };
 		AE15F02E2756192F0059D415 /* MenuTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleView.swift; sourceTree = "<group>"; };
 		AE15F030275619480059D415 /* MenuTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTitleView.xib; sourceTree = "<group>"; };
-		AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTableViewCell.swift; sourceTree = "<group>"; };
-		AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainTableViewCell.xib; sourceTree = "<group>"; };
+		AE15F034275749710059D415 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		AE15F03627574A7E0059D415 /* ViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfigurator.swift; sourceTree = "<group>"; };
+		AE15F03A275751BE0059D415 /* SearchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReactor.swift; sourceTree = "<group>"; };
+		AE15F03F275762E40059D415 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
+		AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPlaceHolder.swift; sourceTree = "<group>"; };
+		AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewPlaceHolder.xib; sourceTree = "<group>"; };
 		CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppViewController.swift; sourceTree = "<group>"; };
 		CE5EA11827550B3100D8B1AD /* AppMainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTableViewHeader.swift; sourceTree = "<group>"; };
 		CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainTableViewHeader.xib; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 				CEF74314275362570034EA3A /* RealmSwift in Frameworks */,
 				CEF7430227533FE30034EA3A /* RxSwift in Frameworks */,
 				CEF7430527533FFD0034EA3A /* ReactorKit in Frameworks */,
+				AE15F03E275762AB0059D415 /* RxDataSources in Frameworks */,
 				CEF7430027533FE30034EA3A /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF742E3275337410034EA3A /* SearchViewController.swift */,
+				AE15F03A275751BE0059D415 /* SearchReactor.swift */,
 				CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */,
 			);
 			name = controller;
@@ -140,10 +151,12 @@
 		CE5EA1152755019D00D8B1AD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */,
+				AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */,
 				AE15F0222755EDFC0059D415 /* FoldableLabel.swift */,
 				AE15F0242755EE030059D415 /* FoldableLabel.xib */,
-				AEDDACE9275475CA00C15973 /* AppMainTableViewCell.swift */,
-				AEDDACEA275475CA00C15973 /* AppMainTableViewCell.xib */,
+				AE15F02E2756192F0059D415 /* MenuTitleView.swift */,
+				AE15F030275619480059D415 /* MenuTitleView.xib */,
 				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
 				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
 				CE5EA134275670B500D8B1AD /* AppInfoTableViewCell.swift */,
@@ -166,8 +179,6 @@
 				AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */,
 				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
 				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
-				AE15F02E2756192F0059D415 /* MenuTitleView.swift */,
-				AE15F030275619480059D415 /* MenuTitleView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 			children = (
 				CEF743082753504D0034EA3A /* SearchResultResponse.swift */,
 				CEF74315275362C60034EA3A /* MySearch.swift */,
+				AE15F03F275762E40059D415 /* TableViewData.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -185,9 +197,11 @@
 			isa = PBXGroup;
 			children = (
 				CEF743212753AA280034EA3A /* Extensions.swift */,
+				AE15F034275749710059D415 /* Protocols.swift */,
 				CEF7430627534ED00034EA3A /* Service.swift */,
 				CEF74317275388710034EA3A /* RealmManager.swift */,
 				CEF7431D2753A1A00034EA3A /* ImageCacheManager.swift */,
+				AE15F03627574A7E0059D415 /* ViewConfigurator.swift */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -241,6 +255,7 @@
 				CEF7430127533FE30034EA3A /* RxSwift */,
 				CEF7430427533FFD0034EA3A /* ReactorKit */,
 				CEF74313275362570034EA3A /* RealmSwift */,
+				AE15F03D275762AB0059D415 /* RxDataSources */,
 			);
 			productName = AppStoreClone;
 			productReference = CEF742DC275337410034EA3A /* AppStoreClone.app */;
@@ -274,6 +289,7 @@
 				CEF742FE27533FE30034EA3A /* XCRemoteSwiftPackageReference "RxSwift" */,
 				CEF7430327533FFD0034EA3A /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				CEF74312275362570034EA3A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				AE15F03C275762AB0059D415 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = CEF742DD275337410034EA3A /* Products */;
 			projectDirPath = "";
@@ -297,12 +313,12 @@
 				CEF742EF275337440034EA3A /* LaunchScreen.storyboard in Resources */,
 				CEF7431C27539D5C0034EA3A /* AppTableViewCell.xib in Resources */,
 				CE5EA13B2756749500D8B1AD /* AppInfoTableViewHeader.xib in Resources */,
-				AEDDACEC275475CA00C15973 /* AppMainTableViewCell.xib in Resources */,
 				AE15F02927560B090059D415 /* AppDescriptionTableViewHeader.xib in Resources */,
 				CE5EA137275670B500D8B1AD /* AppInfoTableViewCell.xib in Resources */,
 				CEF742EC275337440034EA3A /* Assets.xcassets in Resources */,
 				AE15F0252755EE030059D415 /* FoldableLabel.xib in Resources */,
 				CE5EA12B27552B5D00D8B1AD /* AppScreenShotsHeader.xib in Resources */,
+				AE15F04427579B200059D415 /* TableViewPlaceHolder.xib in Resources */,
 				CEF742E7275337410034EA3A /* Main.storyboard in Resources */,
 				CE5EA1272755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib in Resources */,
 				CE5EA11B27550B3A00D8B1AD /* AppMainTableViewHeader.xib in Resources */,
@@ -316,22 +332,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE15F03B275751BE0059D415 /* SearchReactor.swift in Sources */,
 				CEF742E4275337410034EA3A /* SearchViewController.swift in Sources */,
 				CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */,
 				CE5EA13027552CC900D8B1AD /* ScreenshotCollectionViewCell.swift in Sources */,
 				AE15F02727560B030059D415 /* AppDescriptionTableViewHeader.swift in Sources */,
 				CE5EA1252755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift in Sources */,
+				AE15F040275762E40059D415 /* TableViewData.swift in Sources */,
 				CEF74316275362C60034EA3A /* MySearch.swift in Sources */,
 				CE5EA136275670B500D8B1AD /* AppInfoTableViewCell.swift in Sources */,
 				CE5EA12927552B5400D8B1AD /* AppScreenShotsHeader.swift in Sources */,
 				CE5EA1392756748C00D8B1AD /* AppInfoTableViewHeader.swift in Sources */,
 				CEF7431E2753A1A00034EA3A /* ImageCacheManager.swift in Sources */,
 				CEF7430727534ED00034EA3A /* Service.swift in Sources */,
+				AE15F03727574A7E0059D415 /* ViewConfigurator.swift in Sources */,
 				CEF742E0275337410034EA3A /* AppDelegate.swift in Sources */,
-				AEDDACEB275475CA00C15973 /* AppMainTableViewCell.swift in Sources */,
+				AE15F04227579B1A0059D415 /* TableViewPlaceHolder.swift in Sources */,
 				AE15F02B275613500059D415 /* AppSellerTableViewHeader.swift in Sources */,
 				CEF743222753AA280034EA3A /* Extensions.swift in Sources */,
 				CEF743092753504E0034EA3A /* SearchResultResponse.swift in Sources */,
+				AE15F035275749710059D415 /* Protocols.swift in Sources */,
 				CEF7431B27539D5C0034EA3A /* AppTableViewCell.swift in Sources */,
 				CE5EA11927550B3100D8B1AD /* AppMainTableViewHeader.swift in Sources */,
 				CEF74318275388710034EA3A /* RealmManager.swift in Sources */,
@@ -561,6 +581,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE15F03C275762AB0059D415 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		CEF742FE27533FE30034EA3A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -588,6 +616,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE15F03D275762AB0059D415 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE15F03C275762AB0059D415 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		CEF742FF27533FE30034EA3A /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEF742FE27533FE30034EA3A /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -73,3 +73,17 @@ extension UILabel {
         return linesRoundedUp
     }
 }
+
+extension UITableView {
+    func setEmptyMessage(title: String, subTitle: String) {
+        let tableViewPlaceHolder = Bundle.main.loadNibNamed("TableViewPlaceHolder", owner: nil, options: nil)?.first as? TableViewPlaceHolder
+        tableViewPlaceHolder?.title.text = title
+        tableViewPlaceHolder?.subTitle.text = subTitle
+        self.separatorStyle = .none
+        self.backgroundView = tableViewPlaceHolder
+    }
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .none
+    }
+}

@@ -20,8 +20,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi3-Ff-eLN">
-                    <rect key="frame" x="353" y="191" width="61" height="31"/>
+                    <rect key="frame" x="353" y="197" width="61" height="18"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="ZKg-GT-H8Z"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="더보기"/>
                     <connections>
@@ -33,7 +36,7 @@
             <accessibility key="accessibilityConfiguration" identifier="FoldableLabel"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="z6J-nc-8j4" secondAttribute="trailing" id="1Fq-mZ-05V"/>
-                <constraint firstItem="pi3-Ff-eLN" firstAttribute="bottom" secondItem="z6J-nc-8j4" secondAttribute="bottom" constant="7" id="699-Ky-c6D"/>
+                <constraint firstItem="pi3-Ff-eLN" firstAttribute="bottom" secondItem="z6J-nc-8j4" secondAttribute="bottom" id="699-Ky-c6D"/>
                 <constraint firstAttribute="bottom" secondItem="z6J-nc-8j4" secondAttribute="bottom" id="Krr-gd-kot"/>
                 <constraint firstItem="pi3-Ff-eLN" firstAttribute="trailing" secondItem="z6J-nc-8j4" secondAttribute="trailing" id="QF0-Za-lKx"/>
                 <constraint firstItem="z6J-nc-8j4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R2U-IG-Ula"/>

@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3W-3V-BvX" customClass="MenuTitleViewStoryView" customModule="AppStoreClone" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="U1t-2u-wVq"/>
+                            <constraint firstAttribute="height" constant="60" id="U1t-2u-wVq"/>
                         </constraints>
                     </view>
                 </subviews>

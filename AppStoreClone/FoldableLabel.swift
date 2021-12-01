@@ -18,6 +18,7 @@ class FoldableLabel: UIView {
         label.numberOfLines = initialLabelNumber
         label.lineBreakMode = .byWordWrapping
     }
+
     @IBAction func onToggle(_ sender: Any) {
         onToggle?()
     }
@@ -25,9 +26,9 @@ class FoldableLabel: UIView {
 
 class FoldableLabelStoryView: UIView {
     var contentView: FoldableLabel
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         contentView = FoldableLabel.fromNib()
-        super.init(coder: aDecoder)
+        super.init(coder: coder)
         contentView.frame = bounds
         addSubview(contentView)
     }

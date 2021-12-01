@@ -11,7 +11,7 @@ class AppSummaryTableViewHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var ratingStackView: UIStackView!
     @IBOutlet weak var ageStackView: UIStackView!
-    @IBOutlet weak var chartStackView: UIStackView!
+    @IBOutlet weak var categoryStackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var developerStackView: UIStackView!
     @IBOutlet weak var languageStackView: UIStackView!

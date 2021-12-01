@@ -19,7 +19,12 @@ class RealmManager {
         realm.objects(MySearch.self).toArray(ofType: MySearch.self)
     }
     func fetchMySearches(keyword: String) -> [MySearch] {
-        realm.objects(MySearch.self).filter("keyword CONTAINS %@", keyword).toArray(ofType: MySearch.self)
+        if keyword.isEmpty {
+            return realm.objects(MySearch.self).toArray(ofType: MySearch.self)
+        } else {
+            return realm.objects(MySearch.self).filter("keyword CONTAINS %@", keyword).toArray(ofType: MySearch.self)
+        }
+        
     }
     func writeMySearch(keyword: String) {
 //        let realm = getRealm()

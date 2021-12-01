@@ -18,9 +18,9 @@ class MenuTitleView: UIView {
 
 class MenuTitleViewStoryView: UIView {
     var contentView: MenuTitleView
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         contentView = MenuTitleView.fromNib()
-        super.init(coder: aDecoder)
+        super.init(coder: coder)
         contentView.frame = bounds
         addSubview(contentView)
     }
