@@ -86,4 +86,100 @@ extension UITableView {
         self.backgroundView = nil
         self.separatorStyle = .none
     }
+    func dequeue<T: UITableViewHeaderFooterView>(_ type: T.Type) -> T {        
+        let view = dequeueReusableHeaderFooterView(withIdentifier: String(describing: type))
+        guard let viewType = view as? T else {
+            fatalError("Dequeue failed, expect: \(type) was: \(String(describing: view))")
+        }
+        return viewType
+    }
+    func dequeue<T: UITableViewCell>(_ type: T.Type, for indexPath: IndexPath) -> T {
+        let cell = dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath)
+        guard let cellType = cell as? T else {
+            fatalError("Dequeue failed, expect: \(type) was: \(cell)")
+        }
+        return cellType
+    }
+    func registerCellFromNib<T: UITableViewCell>(_ type: T.Type) {
+        register(UINib(nibName: String(describing: type), bundle: nil), forCellReuseIdentifier: String(describing: type))
+    }
+    func registerViewFromNib<T: UITableViewHeaderFooterView>(_ type: T.Type) {
+        register(UINib(nibName: String(describing: type), bundle: nil), forHeaderFooterViewReuseIdentifier: String(describing: type))
+    }
+}
+
+extension UICollectionView {
+    func dequeue<T: UICollectionViewCell>(_ type: T.Type, for indexPath: IndexPath) -> T {
+        let cell = dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath)
+        guard let cellType = cell as? T else {
+            fatalError("Dequeue failed, expect: \(type) was: \(cell)")
+        }
+        return cellType
+    }
+    func registerCellFromNib<T: UITableViewCell>(_ type: T.Type) {
+        register(UINib(nibName: String(describing: type), bundle: nil), forCellWithReuseIdentifier: String(describing: type))
+    }
+}
+
+extension String {
+    func toDate(format: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale.current
+        return formatter.date(from: self)
+    }
+}
+
+extension Date {
+    func pastFromNow() -> String {
+        let timeInterval = round(self.timeIntervalSinceNow.magnitude)
+        let year = round(timeInterval / 60 / 60 / 24 / 30 / 12)
+        guard year < 1 else {
+            return "\(Int(year))년 전"
+        }
+        let month = round(timeInterval / 60 / 60 / 24 / 30)
+        guard month < 1 else {
+            return "\(Int(month))달 전"
+        }
+        let day = round(timeInterval / 60 / 60 / 24)
+        guard day < 1 else {
+            return "\(Int(day))일 전"
+        }
+        let hour = round(timeInterval / 60 / 60)
+        guard hour < 1 else {
+            return "\(Int(hour))시간 전"
+        }
+        let minute = round(timeInterval / 60)
+        guard minute < 1 else {
+            return "\(Int(minute))분 전"
+        }
+        return "최근"
+    }
+}
+
+extension Int {
+    func shorten() -> String {
+        guard self > 999 else {
+            return "\(self)"
+        }
+        guard self > 9999 else {
+            return "\(round(Double(self) / 1000.0 * 10) / 10)천"
+        }
+        guard self > 99999999 else {
+            return "\(round(Double(self) / 10000.0 * 10) / 10)만"
+        }
+        return "\(self)"
+    }
+}
+
+extension Results {
+    func toArray<T>(ofType: T.Type) -> [T] {
+        var array = [T]()
+        for i in 0 ..< count {
+            if let result = self[i] as? T {
+                array.append(result)
+            }
+        }
+        return array
+    }
 }

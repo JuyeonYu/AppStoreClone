@@ -12,13 +12,13 @@ class AppInfoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    func configure(appInfo: [[String]], row: Int) {
+        infoView.contentView.title.text = appInfo[row][0]
+        infoView.contentView.subTitle.text = appInfo[row][1]
+        infoView.contentView.subTitle.isHidden = row == appInfo.count - 1
+        infoView.contentView.accessory.isHidden = row < appInfo.count - 1
+        infoView.contentView.title.textColor = row < appInfo.count - 1 ? .systemGray : .tintColor
+    }
 }

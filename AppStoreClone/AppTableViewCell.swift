@@ -24,7 +24,7 @@ class AppTableViewCell: UITableViewCell {
             guard let app = app else { return }
             appName.text = app.trackName
             genre.text = app.genres.first
-            ratingCount.text = "\(app.userRatingCount)"
+            ratingCount.text = app.userRatingCount.shorten()
             stars.addStar(rating: app.averageUserRating)
             thumbnail.load(urlString: app.artworkUrl60)
             addScreenShots(app)
@@ -60,21 +60,5 @@ class AppTableViewCell: UITableViewCell {
         }
         screenshots.addArrangedSubview(UIImageView())
         addScreenShotImageView()
-    }
-    fileprivate func addStar(rating: Double) {
-        let digit: Double = pow(10, 1)
-        var rating = round(rating * digit) / digit
-        for i in 0 ..< 5 {
-            let imageView = stars.subviews[i] as? UIImageView
-            
-            if rating > 1 {
-                imageView?.image = UIImage(systemName: "star.fill")
-            } else if rating >= 0.5 {
-                imageView?.image = UIImage(systemName: "star.leadinghalf.filled")
-            } else {
-                imageView?.image = UIImage(systemName: "star")
-            }
-            rating -= 1
-        }
     }
 }

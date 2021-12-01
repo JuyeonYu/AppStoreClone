@@ -7,11 +7,18 @@
 
 import UIKit
 
-class AppMainTableViewHeader: UITableViewHeaderFooterView, ConfigurableView {
+class AppMainTableViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var genre: UILabel!
     @IBOutlet weak var download: UIButton!
     @IBOutlet weak var thumbnail: UIImageView!
+    var app: AppStoreApp! {
+        didSet {
+            thumbnail.load(urlString: app.artworkUrl100)
+            title.text = app.trackName
+            genre.text = app.genres.first
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbnail.layer.cornerRadius = 20
@@ -20,10 +27,5 @@ class AppMainTableViewHeader: UITableViewHeaderFooterView, ConfigurableView {
         download.setTitleColor(.white, for: .normal)
         download.layer.cornerRadius = 10
         download.layer.masksToBounds = true
-    }
-    func configure(data app: AppStoreApp) {
-        thumbnail.load(urlString: app.artworkUrl100)
-        title.text = app.trackName
-        genre.text = app.genres.first
     }
 }

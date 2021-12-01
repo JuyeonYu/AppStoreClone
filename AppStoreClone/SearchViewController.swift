@@ -22,9 +22,7 @@ class SearchViewController: UIViewController, StoryboardView {
         reactor = SearchReactor()
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        keywordTableView.register(UITableViewCell.self, forCellReuseIdentifier: "BasicCell")
-        appsTableView.register(UINib(nibName: "AppTableViewCell", bundle: nil), forCellReuseIdentifier: "AppTableViewCell")
-        
+        appsTableView.registerCellFromNib(AppTableViewCell.self)
         keywordTableView.rx.didScroll
             .filter { self.searchController.searchBar.isFirstResponder }
             .asDriver(onErrorJustReturn: ())
@@ -37,6 +35,12 @@ class SearchViewController: UIViewController, StoryboardView {
                 guard let detailAppViewController = self?.storyboard?.instantiateViewController(
                     withIdentifier: "DetailAppViewController") as? DetailAppViewController else { return }
                 detailAppViewController.app = app
+                detailAppViewController.appInfo = [["제공자", app.sellerName],
+                                                   ["크기", "\(Double((Int(app.fileSizeBytes) ?? 1) / 1000000))MB"],
+                                                   ["카테고리", app.genres[0]],
+                                                   ["연령 등급", app.trackContentRating],
+                                                   ["저작권", app.sellerName],
+                                                   ["개발자 웹사이트", app.sellerUrl ?? ""]]
                 self?.navigationController?.pushViewController(detailAppViewController, animated: true)
             }).disposed(by: disposeBag)
     }
@@ -74,15 +78,18 @@ class SearchViewController: UIViewController, StoryboardView {
             .drive(onNext: { [weak self] isApp in
                 self?.keywordTableView.isHidden = isApp
                 self?.appsTableView.isHidden = !isApp
-                if isApp && self?.searchController.searchBar.isFirstResponder ?? false {
+                if isApp {
                     self?.searchController.searchBar.resignFirstResponder()
+                } else {
+                    self?.appsTableView.scrollToRow(at: NSIndexPath(row: NSNotFound, section: 0) as IndexPath,
+                                                    at: .top,
+                                                    animated: false)
                 }
             }).disposed(by: disposeBag)
         reactor.state
             .map { $0.apps }
             .bind(to: appsTableView.rx.items) { tableView, row, app in
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "AppTableViewCell", for: IndexPath(row: row, section: 0)) as! AppTableViewCell
+                let cell = tableView.dequeue(AppTableViewCell.self, for: IndexPath(row: row, section: 0))
                 cell.app = app
                 return cell
             }.disposed(by: disposeBag)
@@ -126,12 +133,10 @@ extension SearchViewController {
                     cell.imageView?.image = UIImage(systemName: "magnifyingglass")
                     cell.textLabel?.text = item.keyword
                     return cell
-
                 case .App(let item):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "AppTableViewCell", for: indexPath) as! AppTableViewCell
+                    let cell = tableView.dequeue(AppTableViewCell.self, for: indexPath)
                     cell.app = item
                     return cell
-
                 }
             }
         )
