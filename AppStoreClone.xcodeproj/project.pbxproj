@@ -16,7 +16,6 @@
 		AE15F02F2756192F0059D415 /* MenuTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F02E2756192F0059D415 /* MenuTitleView.swift */; };
 		AE15F031275619480059D415 /* MenuTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F030275619480059D415 /* MenuTitleView.xib */; };
 		AE15F03B275751BE0059D415 /* SearchReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F03A275751BE0059D415 /* SearchReactor.swift */; };
-		AE15F03E275762AB0059D415 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = AE15F03D275762AB0059D415 /* RxDataSources */; };
 		AE15F04227579B1A0059D415 /* TableViewPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */; };
 		AE15F04427579B200059D415 /* TableViewPlaceHolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */; };
 		CE2EBC592753C46C0010B358 /* DetailAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */; };
@@ -111,7 +110,6 @@
 				CEF74314275362570034EA3A /* RealmSwift in Frameworks */,
 				CEF7430227533FE30034EA3A /* RxSwift in Frameworks */,
 				CEF7430527533FFD0034EA3A /* ReactorKit in Frameworks */,
-				AE15F03E275762AB0059D415 /* RxDataSources in Frameworks */,
 				CEF7430027533FE30034EA3A /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +117,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE15F0462757D21A0059D415 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */,
+				AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */,
+				AE15F0222755EDFC0059D415 /* FoldableLabel.swift */,
+				AE15F0242755EE030059D415 /* FoldableLabel.xib */,
+				AE15F02E2756192F0059D415 /* MenuTitleView.swift */,
+				AE15F030275619480059D415 /* MenuTitleView.xib */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		AE15F0472757D2310059D415 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
+				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
+				CE5EA134275670B500D8B1AD /* AppInfoTableViewCell.swift */,
+				CE5EA135275670B500D8B1AD /* AppInfoTableViewCell.xib */,
+				CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */,
+				CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		AE15F0482757D24D0059D415 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				CE5EA1382756748C00D8B1AD /* AppInfoTableViewHeader.swift */,
+				CE5EA13A2756749500D8B1AD /* AppInfoTableViewHeader.xib */,
+				CE5EA11827550B3100D8B1AD /* AppMainTableViewHeader.swift */,
+				CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */,
+				CE5EA11C27550D6800D8B1AD /* AppSummaryTableViewHeader.swift */,
+				CE5EA11E27550D7500D8B1AD /* AppSummaryTableViewHeader.xib */,
+				CE5EA1242755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift */,
+				CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */,
+				CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */,
+				CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */,
+				AE15F02627560B030059D415 /* AppDescriptionTableViewHeader.swift */,
+				AE15F02827560B090059D415 /* AppDescriptionTableViewHeader.xib */,
+				AE15F02A275613500059D415 /* AppSellerTableViewHeader.swift */,
+				AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */,
+			);
+			name = header;
+			sourceTree = "<group>";
+		};
+		AE15F0492757D2680059D415 /* footer */ = {
+			isa = PBXGroup;
+			children = (
+				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
+				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
+			);
+			name = footer;
+			sourceTree = "<group>";
+		};
+		AE15F04A2757D2890059D415 /* reactor */ = {
+			isa = PBXGroup;
+			children = (
+				AE15F03A275751BE0059D415 /* SearchReactor.swift */,
+			);
+			name = reactor;
+			sourceTree = "<group>";
+		};
 		CE5EA1122755017500D8B1AD /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF742E3275337410034EA3A /* SearchViewController.swift */,
-				AE15F03A275751BE0059D415 /* SearchReactor.swift */,
 				CE2EBC582753C46C0010B358 /* DetailAppViewController.swift */,
 			);
 			name = controller;
@@ -145,34 +206,10 @@
 		CE5EA1152755019D00D8B1AD /* view */ = {
 			isa = PBXGroup;
 			children = (
-				AE15F04127579B1A0059D415 /* TableViewPlaceHolder.swift */,
-				AE15F04327579B200059D415 /* TableViewPlaceHolder.xib */,
-				AE15F0222755EDFC0059D415 /* FoldableLabel.swift */,
-				AE15F0242755EE030059D415 /* FoldableLabel.xib */,
-				AE15F02E2756192F0059D415 /* MenuTitleView.swift */,
-				AE15F030275619480059D415 /* MenuTitleView.xib */,
-				CEF7431927539D5C0034EA3A /* AppTableViewCell.swift */,
-				CEF7431A27539D5C0034EA3A /* AppTableViewCell.xib */,
-				CE5EA134275670B500D8B1AD /* AppInfoTableViewCell.swift */,
-				CE5EA135275670B500D8B1AD /* AppInfoTableViewCell.xib */,
-				CE5EA1382756748C00D8B1AD /* AppInfoTableViewHeader.swift */,
-				CE5EA13A2756749500D8B1AD /* AppInfoTableViewHeader.xib */,
-				CE5EA12E27552CC900D8B1AD /* ScreenshotCollectionViewCell.swift */,
-				CE5EA12F27552CC900D8B1AD /* ScreenshotCollectionViewCell.xib */,
-				CE5EA11827550B3100D8B1AD /* AppMainTableViewHeader.swift */,
-				CE5EA11A27550B3A00D8B1AD /* AppMainTableViewHeader.xib */,
-				CE5EA11C27550D6800D8B1AD /* AppSummaryTableViewHeader.swift */,
-				CE5EA11E27550D7500D8B1AD /* AppSummaryTableViewHeader.xib */,
-				CE5EA1242755230C00D8B1AD /* AppReleaseNoteTableViewHeader.swift */,
-				CE5EA1262755231500D8B1AD /* AppReleaseNoteTableViewHeader.xib */,
-				CE5EA12827552B5400D8B1AD /* AppScreenShotsHeader.swift */,
-				CE5EA12A27552B5D00D8B1AD /* AppScreenShotsHeader.xib */,
-				AE15F02627560B030059D415 /* AppDescriptionTableViewHeader.swift */,
-				AE15F02827560B090059D415 /* AppDescriptionTableViewHeader.xib */,
-				AE15F02A275613500059D415 /* AppSellerTableViewHeader.swift */,
-				AE15F02C275613560059D415 /* AppSellerTableViewHeader.xib */,
-				CE5EA1202755129500D8B1AD /* SeparatorTableViewFooter.swift */,
-				CE5EA1222755129D00D8B1AD /* SeparatorTableViewFooter.xib */,
+				AE15F0462757D21A0059D415 /* common */,
+				AE15F0472757D2310059D415 /* cell */,
+				AE15F0482757D24D0059D415 /* header */,
+				AE15F0492757D2680059D415 /* footer */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -218,6 +255,7 @@
 			children = (
 				CE5EA1122755017500D8B1AD /* app */,
 				CE5EA1142755019500D8B1AD /* controller */,
+				AE15F04A2757D2890059D415 /* reactor */,
 				CE5EA1152755019D00D8B1AD /* view */,
 				CE5EA116275501B300D8B1AD /* model */,
 				CE5EA117275501C800D8B1AD /* helper */,
@@ -246,7 +284,6 @@
 				CEF7430127533FE30034EA3A /* RxSwift */,
 				CEF7430427533FFD0034EA3A /* ReactorKit */,
 				CEF74313275362570034EA3A /* RealmSwift */,
-				AE15F03D275762AB0059D415 /* RxDataSources */,
 			);
 			productName = AppStoreClone;
 			productReference = CEF742DC275337410034EA3A /* AppStoreClone.app */;
@@ -604,11 +641,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AE15F03D275762AB0059D415 /* RxDataSources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AE15F03C275762AB0059D415 /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
-		};
 		CEF742FF27533FE30034EA3A /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEF742FE27533FE30034EA3A /* XCRemoteSwiftPackageReference "RxSwift" */;

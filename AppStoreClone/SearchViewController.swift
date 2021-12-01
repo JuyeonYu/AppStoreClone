@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 import RealmSwift
-import RxDataSources
 
 class SearchViewController: UIViewController, StoryboardView {
     var disposeBag: DisposeBag = DisposeBag()
@@ -120,25 +119,5 @@ class SearchViewController: UIViewController, StoryboardView {
                     self?.appsTableView.restore()
                 }
             }).disposed(by: disposeBag)
-    }
-}
-
-extension SearchViewController {
-    static func dataSource() -> RxTableViewSectionedReloadDataSource<SearchModel> {
-        return RxTableViewSectionedReloadDataSource<SearchModel>(
-            configureCell: { dataSource, tableView, indexPath, _ in
-                switch dataSource[indexPath] {
-                case .Keyword(let item):
-                    let cell = UITableViewCell()
-                    cell.imageView?.image = UIImage(systemName: "magnifyingglass")
-                    cell.textLabel?.text = item.keyword
-                    return cell
-                case .App(let item):
-                    let cell = tableView.dequeue(AppTableViewCell.self, for: indexPath)
-                    cell.app = item
-                    return cell
-                }
-            }
-        )
     }
 }

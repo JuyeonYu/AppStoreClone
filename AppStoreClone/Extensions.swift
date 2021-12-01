@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 extension UIView {
     class func fromNib<T: UIView>() -> T {
@@ -116,7 +117,7 @@ extension UICollectionView {
         }
         return cellType
     }
-    func registerCellFromNib<T: UITableViewCell>(_ type: T.Type) {
+    func registerCellFromNib<T: UICollectionViewCell>(_ type: T.Type) {
         register(UINib(nibName: String(describing: type), bundle: nil), forCellWithReuseIdentifier: String(describing: type))
     }
 }

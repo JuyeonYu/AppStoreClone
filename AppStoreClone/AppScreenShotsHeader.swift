@@ -11,6 +11,6 @@ class AppScreenShotsHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.registerCellFromNib(ScreenshotCollectionViewCell)
+        collectionView.registerCellFromNib(ScreenshotCollectionViewCell.self)
     }
 }
